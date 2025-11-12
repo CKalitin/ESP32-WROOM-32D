@@ -1,0 +1,9 @@
+Elapsed_s,ADC,Voltage_V,Voltage_mV,Temperature_C,Raw_Line
+0.001,,,,,FAST_FLASH_BOOT)
+0.003,,,,,"configsip: 0, SPIWP:0xee"
+0.005,,,,,"clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00"
+0.006,,,,,"mode:DIO, clock div:2"
+0.006,,,,,"load:0x3fff0030,len:1184"
+0.007,,,,,"load:0x40078000,len:13232"
+0.011,,,,,"load:0x40080400,len:3028"
+0.011,,,,,entry 0x400805e4

@@ -14,37 +14,16 @@ void setup() {
   Serial.begin(115200);
   Serial.println("Hello World");
 
-  pinMode(14, OUTPUT);
+  pinMode(32, OUTPUT);
 }
 
 void loop() {
-  if (adcBufferIndex >= adcBufferLength) adcBufferIndex = 0;
-
-  int adc1Value = analogRead(36);
-  adc1Buffer[adcBufferIndex] = adc1Value;
-
-  int adc2Value = analogRead(12);
-  adc2Buffer[adcBufferIndex] = adc2Value;
-
-  adcBufferIndex++;
-
-  if (adcBufferIndex % 50 == 0) { 
-    int adc1Average = getAverage(adc1Buffer, adcBufferLength);
-    int adc2Average = getAverage(adc2Buffer, adcBufferLength);
-
-    double adc1Voltage = (double)adc1Average / 4095.0 * 3.3;
-    double adc2Voltage = (double)adc2Average / 4095.0 * 3.3;
-
-    double adc1Error = getErrorInVolts(adc1Voltage);
-    double adc2Error = getErrorInVolts(adc2Voltage);
-
-    double adc1Corrected = adc1Voltage - adc1Error;
-    double adc2Corrected = adc2Voltage - adc2Error;
-
-    Serial.println("ADC1: (" + String(adc1Voltage) + ", " + String(adc1Corrected) + "). ADC2: (" + String(adc2Voltage) + ", " + String(adc2Corrected) + ").");
-  }
-
-  delay(adcReadDelay);
+  digitalWrite(32, HIGH);
+  Serial.println("HIGH");
+  delay(1000);
+  digitalWrite(32, LOW);
+  Serial.println("LOW");
+  delay(1000);
 }
 
 int getAverage(int* buffer, int length) {
